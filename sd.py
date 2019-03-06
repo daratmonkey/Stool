@@ -64,7 +64,7 @@ while inputs:
 
                     print("DICT: {}\n".format(mix_dict))
                     for x in mix_dict:
-                        print("TEST: {}: {} {}".format(x, list(mix_dict.keys()).index(x), list(mix_dict.keys()).index(x)))
+                        print("TEST: {}: {} {}".format(x, list(mix_dict.keys()).index(x[1]), list(mix_dict.keys()).index(x[2])))
 
                     for x in the_mix:
                         if x[1] > len(the_mix) or x[2] > len(the_mix):
