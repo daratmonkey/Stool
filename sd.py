@@ -51,7 +51,16 @@ while inputs:
                         if x[1] > len(the_mix) or x[2] > len(the_mix):
                             pass
                         else:
-                            mix_dict[x[0]] = [the_mix[x[1] - 1][0], the_mix[x[2] - 1][0]]
+                            if x[1] == 0:
+                                a = 0
+                            else:
+                                a = the_mix[x[1] - 1][0]
+                            if x[2] == 0:
+                                b = 0
+                            else:
+                                b = the_mix[x[2] - 1][0]
+
+                            mix_dict[x[0]] = [a, b]
 
                     print("DICT: {}\n".format(mix_dict))
                     for x in mix_dict:
