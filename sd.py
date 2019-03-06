@@ -46,12 +46,22 @@ while inputs:
                         print("Could not unpack\n")
                     
                     debris = []
+                    mix_dict = {}
+                    for x in the_mix:
+                        if x[1] > len(the_mix) or x[2] > len(the_mix):
+                            pass
+                        else
+                            mix_dict[x[0]] = [the_mix[x[1]][0], the_mix[x[2]]][0]
+
+
 
                     for x in the_mix:
                         if x[1] > len(the_mix) or x[2] > len(the_mix):
                             print("->{} {} {}<-".format(x, x[1], x[2]))
                             debris.append(x)
                             the_mix.remove(x)
+                            #adjust the indexes
+
 
                     debris_final = struct.pack('!HHI', 1, (len(debris) * 8) + 8, 0)
                     for x in debris:
