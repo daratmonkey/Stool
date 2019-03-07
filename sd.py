@@ -18,17 +18,17 @@ def de_merc(mix_dict):
     m_list = []
     for i, x in enumerate(nums):
         if x == 0:
-            m_list.append(i)
+            m_list.append(list(mix_dict.keys())[i])
     m_list.sort()
     print("-->: {}".format(m_list))
     for x in m_list:
-        print("    {}".format(list(mix_dict.keys())[x]))
+        print("    {}".format(x)
 
     if len(m_list) > 1:
         merc_final = struct.pack('!HHI', 4, ((len(m_list) - 1) * 8) + 8, 0)
         for x in range(0, len(m_list) - 1):
-            merc_final += struct.pack('!II', list(mix_dict.keys())[m_list[x]], 0)
-            print("MERCURY: {}".format(list(mix_dict.keys())[m_list[x]]))
+            merc_final += struct.pack('!II', x, 0)
+            print("MERCURY: {}".format(x))
         merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         merc_adress = ('10.40.13.151', 8888)
         merc_socket.connect(merc_adress)
