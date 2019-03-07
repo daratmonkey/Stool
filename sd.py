@@ -2,7 +2,7 @@
 
 import select, socket, sys, queue, struct
 
-def de_lead(mix_dict):
+def de_merc(mix_dict):
     nums = []
     for x in mix_dict:
         nums.append(0)
@@ -16,7 +16,26 @@ def de_lead(mix_dict):
                 if mix_dict[y][0] != 0 or mix_dict[y][1] != 0:
                     nums[i] += 1      
 
-    print("LEAD: {}".format(nums))
+    print("MERC: {}".format(nums))
+
+    hazmat = False
+    if 0 in nums:
+        hazmat = True
+
+    if hazmat is True:
+        merc_final = struct.pack('!HHI', 4, (hazmat * 8) + 8, 0)
+        for x in nums:
+            if x == 0:
+                merc_final += struct.pack('!II', list(mix_dict.keys())[x], 0)
+                print("MERCURY: {}".format(list(mix_dict.keys())[x]))
+        merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        merc_adress = ('10.40.13.151', 8888)
+        merc_socket.connect(merc_adress)
+        merc_socket.send(merc_final)
+        merc_socket.close()
+    else:
+        print("NO MERCURY")
+
 
 def main():
     liquid = True
@@ -115,7 +134,7 @@ def main():
                             print(" {}: {} {}".format(x, a, b), end=" ")
 
                         print()
-                        de_lead(mix_dict)
+                        de_merc(mix_dict)
 
                         print()
                         for x in the_mix:
