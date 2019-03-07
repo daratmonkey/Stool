@@ -22,7 +22,7 @@ def de_merc(mix_dict):
         if x == 0:
             m_list.append(nums.index(x))
             m_poss += 1
-    if m_pos > 2:
+    if m_poss > 2:
         hazmat = True
     m_list.sort()
 
