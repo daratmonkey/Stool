@@ -82,7 +82,7 @@ while inputs:
                         else:
                             a = 0
                         if mix_dict[x][1] is not 0:
-                            b = list(mix_dict.keys()).index(mix_dict[x][0])
+                            b = list(mix_dict.keys()).index(mix_dict[x][1])
                         else:
                             b = 0
                         print("TEST: {}: {} {}".format(x, a, b))
