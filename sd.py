@@ -13,7 +13,7 @@ def de_lead(mix_dict):
                 if mix_dict[y][0] == x or mix_dict[y][1] == x:
                     nums[i] += 1       
 
-    print("REF: {}".format(nums))
+    print("LEAD: {}".format(nums))
 
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -103,6 +103,7 @@ def main():
                                 b = 0
                             print(" {}: {} {}".format(x, a, b), end=" ")
 
+                        print()
                         de_lead(mix_dict)
 
                         print()
