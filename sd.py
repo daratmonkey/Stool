@@ -32,7 +32,7 @@ def de_merc(mix_dict):
         merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         merc_adress = ('10.40.13.151', 8888)
         merc_socket.connect(merc_adress)
-        print("MSEND: {}".format(merc_final))
+        print("MSEND: [{}] {}".format(len(merc_final), merc_final))
         merc_socket.send(merc_final)
         merc_socket.close()
     else:
