@@ -11,23 +11,26 @@ def de_merc(mix_dict):
         for y in mix_dict:
             if x is not y:
                 if mix_dict[y][0] == x or mix_dict[y][1] == x:
-                    nums[i] += 1
-            else:
-                if mix_dict[y][0] != 0 or mix_dict[y][1] != 0:
-                    nums[i] += 1      
+                    nums[i] += 1    
 
     print("MERC: {}".format(nums))
 
     hazmat = False
-    if 0 in nums:
+    m_poss = 0
+    m_list = []
+    for x in nums:
+        if x == 0:
+            m_list.append[x]
+            m_poss += 1
+    if m_pos > 2:
         hazmat = True
+    m_list.sort()
 
     if hazmat is True:
         merc_final = struct.pack('!HHI', 4, (hazmat * 8) + 8, 0)
-        for x in nums:
-            if x == 0:
-                merc_final += struct.pack('!II', list(mix_dict.keys())[x], 0)
-                print("MERCURY: {}".format(list(mix_dict.keys())[x]))
+        for x in range(0, len(m_list) - 1):
+            merc_final += struct.pack('!II', list(mix_dict.keys())[m_list[x]], 0)
+            print("MERCURY: {}".format(list(mix_dict.keys())[m_list[x]]))
         merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         merc_adress = ('10.40.13.151', 8888)
         merc_socket.connect(merc_adress)
