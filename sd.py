@@ -80,11 +80,11 @@ while inputs:
                     print("TEST: ", end="")
                     for x in mix_dict:
                         try:
-                            a = list(mix_dict.keys()).index(mix_dict[x][0])
+                            a = list(mix_dict.keys()).index(mix_dict[x][0]) + 1
                         except:
                             a = 0
                         try:
-                            b = list(mix_dict.keys()).index(mix_dict[x][1])
+                            b = list(mix_dict.keys()).index(mix_dict[x][1]) + 1
                         except:
                             b = 0
                         print(" {}: {} {}".format(x, a, b), end=" ")
