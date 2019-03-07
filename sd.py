@@ -11,7 +11,10 @@ def de_lead(mix_dict):
         for y in mix_dict:
             if x is not y:
                 if mix_dict[y][0] == x or mix_dict[y][1] == x:
-                    nums[i] += 1       
+                    nums[i] += 1
+            else:
+                if mix_dict[y][0] != 0 or mix_dict[y][1] != 0:
+                    nums[i] += 1      
 
     print("LEAD: {}".format(nums))
 
@@ -91,6 +94,7 @@ def main():
 
                         for x in remove_list:
                             mix_dict.pop(x)
+
                         try:
                             mix_dict.pop(0)
                         except:
