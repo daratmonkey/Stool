@@ -69,7 +69,10 @@ while inputs:
 
                     for x in remove_list:
                         mix_dict.pop(x)
-                    mix_dict.pop(0)
+                    try:
+                        mix_dict.pop(0)
+                    except:
+                        pass
 
                     print("DICT: {}\n".format(mix_dict))
 
