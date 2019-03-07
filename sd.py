@@ -88,6 +88,9 @@ def main():
                         except:
                             print("Could not unpack\n")
                         
+
+                        #####SEND TO WATER INIT
+
                         debris = []
                         mix_dict = {}
                         for x in the_mix:
