@@ -25,6 +25,7 @@ def de_merc(mix_dict):
     if m_poss > 2:
         hazmat = True
     m_list.sort()
+    print("-->: {}".format(m_list))
 
     if hazmat is True:
         merc_final = struct.pack('!HHI', 4, (hazmat * 8) + 8, 0)
