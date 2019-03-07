@@ -36,7 +36,8 @@ while inputs:
                         header1 = struct.unpack('!H', data[0:2])[0]
                         header2 = struct.unpack('!H', data[2:4])[0]
                         header3 = struct.unpack('!I', data[4:8])[0]
-                        print("HEAD: [{}] [{}] [{}]\n".format(header1, header2, header3))
+                        print("----------------------------------------------")
+                        print("HEAD: [{}] [{}] [{}]".format(header1, header2, header3))
                         fp.write("HEAD: [{}] [{}] [{}]\n".format(header1, header2, header3))
                         for x in range(1, int(header2 / 8)):
                             molecule = struct.unpack('!IHH', data[8 * x:(8 * x) + 8])
@@ -76,6 +77,7 @@ while inputs:
 
                     print("DICT: {}\n".format(mix_dict))
 
+                    print("TEST: ", end="")
                     for x in mix_dict:
                         try:
                             a = list(mix_dict.keys()).index(mix_dict[x][0])
@@ -85,11 +87,12 @@ while inputs:
                             b = list(mix_dict.keys()).index(mix_dict[x][1])
                         except:
                             b = 0
-                        print("TEST: {}: {} {}".format(x, a, b))
+                        print(" {}: {} {}".format(x, a, b), end=" ")
 
+                    print()
                     for x in the_mix:
                         if x[1] > len(the_mix) or x[2] > len(the_mix):
-                            print("->{} {} {}<-".format(x, x[1], x[2]))
+                            # print("{} {} {}<-".format(x, x[1], x[2]))
                             debris.append(x)
                             the_mix.remove(x)
                             #adjust the indexes
@@ -119,7 +122,7 @@ while inputs:
                     print("SEND: {}\n".format(water_final))
                     ds_socket.close()
 
-                    print("DATA: [{}] {}\n".format(len(the_mix), the_mix))
+                    print("DATA: [{}] {}".format(len(the_mix), the_mix))
                     fp.write("DATA: [{}] {}\n".format(len(the_mix), the_mix))
                     clorine = 0
                     air = 0
@@ -128,11 +131,12 @@ while inputs:
                             clorine += 1
                         if x[0] == 0:
                             air += 1
-                    print("Clorine percent {}%\n".format(clorine /len(the_mix)))
-                    print("Air percent {}%\n".format(air /len(the_mix)))    
+                    print("Clorine percent {}%".format(clorine /len(the_mix)))
+                    print("Air percent {}%".format(air /len(the_mix)))    
                 else:
                     fp.write("CLOS: No more data on {}\n".format(client_address))
                     break
+                print("----------------------------------------------")
         finally:
             connection.close()
         fp.close()
