@@ -31,6 +31,7 @@ def de_merc(mix_dict):
         for x in range(0, len(m_list) - 1):
             merc_final += struct.pack('!II', m_list[x], 0)
             print("MERCURY: {}".format(m_list[x]))
+            mix_dict.pop(m_list[x])
         merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         merc_adress = ('10.40.13.151', 8888)
         merc_socket.connect(merc_adress)
@@ -139,6 +140,7 @@ def main():
 
                         print()
                         de_merc(mix_dict)
+                        print("DICT2: {}\n".format(mix_dict))
 
                         print()
                         for x in the_mix:
@@ -163,8 +165,24 @@ def main():
                             print("DEBR: {}\n".format(debris_final))
 
                         water_final = struct.pack('!HHI', 0, (len(the_mix) * 8) + 8, 0)
-                        for y in the_mix:
-                            water_final += struct.pack('!IHH', y[0], y[1], y[2])
+                        #for y in the_mix:
+                        #    water_final += struct.pack('!IHH', y[0], y[1], y[2])
+
+                        #print("TEST: ", end="")
+                        for x in mix_dict:
+                            try:
+                                a = list(mix_dict.keys()).index(mix_dict[x][0]) + 1
+                            except:
+                                a = 0
+                            try:
+                                b = list(mix_dict.keys()).index(mix_dict[x][1]) + 1
+                            except:
+                                b = 0
+                            water_final += struct.pack('!IHH', x, a, b)
+                            #print(" {}: {} {}".format(x, a, b), end=" ")
+
+
+
 
                         ds_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         ds_address = ('10.40.13.151', 1111)
