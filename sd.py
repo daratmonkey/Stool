@@ -127,7 +127,7 @@ while inputs:
                     clorine = 0
                     air = 0
                     for x in the_mix:
-                        if x[1] == x[2] and x[0] is not 0:
+                        if x[1] == x[2] and x[0] is not 0 and x[1] is not 0:
                             clorine += 1
                         if x[0] == 0:
                             air += 1
