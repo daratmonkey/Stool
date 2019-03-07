@@ -18,9 +18,9 @@ def de_merc(mix_dict):
     hazmat = False
     m_poss = 0
     m_list = []
-    for x in nums:
+    for i, x in enumerate(nums):
         if x == 0:
-            m_list.append(nums.index(x))
+            m_list.append(i)
             m_poss += 1
     if m_poss > 2:
         hazmat = True
