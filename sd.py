@@ -16,6 +16,7 @@ def de_lead(mix_dict):
     print("LEAD: {}".format(nums))
 
 def main():
+    liquid = True
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(('0.0.0.0', 3333))
     server.listen(5)
@@ -67,11 +68,17 @@ def main():
                                 pass
                             else:
                                 if x[1] == 0:
-                                    a = 0
+                                    if liquid is True:
+                                        a = 0
+                                    else:
+                                        a = 0xffff
                                 else:
                                     a = the_mix[x[1] - 1][0]
                                 if x[2] == 0:
-                                    b = 0
+                                    if liquid is True:
+                                        b = 0
+                                    else:
+                                        b = 0xffff
                                 else:
                                     b = the_mix[x[2] - 1][0]
 
