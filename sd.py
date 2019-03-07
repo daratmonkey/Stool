@@ -15,20 +15,16 @@ def de_merc(mix_dict):
 
     print("MERC: {}".format(nums))
 
-    hazmat = False
-    m_poss = 0
     m_list = []
     for i, x in enumerate(nums):
         if x == 0:
             m_list.append(i)
-            m_poss += 1
-    if m_poss > 2:
-        hazmat = True
     m_list.sort()
     print("-->: {}".format(m_list))
 
-    if hazmat is True:
-        merc_final = struct.pack('!HHI', 4, (hazmat * 8) + 8, 0)
+
+    if len(m_list) > 1:
+        merc_final = struct.pack('!HHI', 4, ((len(m_list) - 1) * 8) + 8, 0)
         for x in range(0, len(m_list) - 1):
             merc_final += struct.pack('!II', list(mix_dict.keys())[m_list[x]], 0)
             print("MERCURY: {}".format(list(mix_dict.keys())[m_list[x]]))
