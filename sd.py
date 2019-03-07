@@ -12,7 +12,9 @@ def de_merc(mix_dict):
             if x is not y:
                 if mix_dict[y][0] == x or mix_dict[y][1] == x:
                     nums[i] += 1    
-
+            else:
+                if mix_dict[y][0] != 0 or mix_dict[y][1] != 0:
+                    nums[i] += 1
     print("MERC: {}".format(nums))
 
     m_list = []
