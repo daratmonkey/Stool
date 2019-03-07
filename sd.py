@@ -27,8 +27,8 @@ def de_merc(mix_dict):
     if len(m_list) > 1:
         merc_final = struct.pack('!HHI', 4, ((len(m_list) - 1) * 8) + 8, 0)
         for x in range(0, len(m_list) - 1):
-            merc_final += struct.pack('!II', x, 0)
-            print("MERCURY: {}".format(x))
+            merc_final += struct.pack('!II', m_list[x], 0)
+            print("MERCURY: {}".format(m_list[x]))
         merc_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         merc_adress = ('10.40.13.151', 8888)
         merc_socket.connect(merc_adress)
