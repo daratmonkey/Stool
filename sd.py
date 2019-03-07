@@ -65,6 +65,7 @@ while inputs:
                     for x in mix_dict:
                         if mix_dict[x][0] not in mix_dict or mix_dict[x][1] not in mix_dict:
                             mix_dict.pop(x)
+                    mix.dict.pop(0)
 
                     print("DICT: {}\n".format(mix_dict))
 
