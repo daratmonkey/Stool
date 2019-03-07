@@ -62,10 +62,14 @@ while inputs:
 
                             mix_dict[x[0]] = [a, b]
 
+                    remove_list = []
                     for x in mix_dict:
                         if mix_dict[x][0] not in mix_dict or mix_dict[x][1] not in mix_dict:
-                            mix_dict.pop(x)
-                    mix.dict.pop(0)
+                            remove_list.append(x)
+
+                    for x in remove_list:
+                        mix_dict.pop(x)
+                    mix_dict.pop(0)
 
                     print("DICT: {}\n".format(mix_dict))
 
