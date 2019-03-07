@@ -33,7 +33,7 @@ class Water:
     def treat_trash(self):
         for x in self.mix:
             if self.mix[x][0] > len(self.mix) or self.mix[x][1] > len(self.mix):
-                remove_list.append(x)
+                self.trash.append(x)
 
         for x in self.trash:
                 self.mix.pop(x)
