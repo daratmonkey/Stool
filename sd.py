@@ -22,7 +22,7 @@ def de_merc(mix_dict):
     m_list.sort()
     print("-->: {}".format(m_list))
     for x in m_list:
-        print("    {}".format(x)
+        print("    {}".format(x))
 
     if len(m_list) > 1:
         merc_final = struct.pack('!HHI', 4, ((len(m_list) - 1) * 8) + 8, 0)
