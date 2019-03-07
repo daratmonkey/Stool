@@ -180,8 +180,11 @@ def main():
                                 clorine += 1
                             if x[0] == 0:
                                 air += 1
-                        print("Clorine percent {}%".format(clorine /len(the_mix)))
-                        print("Air percent {}%".format(air /len(the_mix)))    
+                        try:
+                            print("Clorine percent {}%".format(clorine /len(the_mix)))
+                            print("Air percent {}%".format(air /len(the_mix)))    
+                        except:
+                            pass
                     else:
                         fp.write("CLOS: No more data on {}\n".format(client_address))
                         break
