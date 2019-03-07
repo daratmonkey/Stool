@@ -77,13 +77,13 @@ while inputs:
                     print("DICT: {}\n".format(mix_dict))
 
                     for x in mix_dict:
-                        if mix_dict[x][0] is not 0:
+                        try:
                             a = list(mix_dict.keys()).index(mix_dict[x][0])
-                        else:
+                        except:
                             a = 0
-                        if mix_dict[x][1] is not 0:
+                        try:
                             b = list(mix_dict.keys()).index(mix_dict[x][1])
-                        else:
+                        except:
                             b = 0
                         print("TEST: {}: {} {}".format(x, a, b))
 
