@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 
 import struct
-from treat import log_it
+
+def log_it(mtype, message):
+    fp = open("sd.log", "a")
+    fp.write("{}: {}\n".format(mtype, message))
+    fp.close()
+    print("{}: {}\n".format(mtype, message))
 
 #https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
 def is_prime(x):
@@ -66,6 +71,7 @@ class Water:
                     a = 0
                 else:
                     a = data[x[1] - 1][0]
+
                 if x[2] == 0:
                     if liquid is True:
                         b = 0
@@ -79,9 +85,7 @@ class Water:
                 self.mix[x[0]] = [a, b]
 
     def __repr__(self):
-        return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}".format(len(self.data),
-            self.data, len(self.mix), self.mix, len(self.trash),
-            self.trash, len(self.hazmat), self.hazmat, len(self.sludge), self.sludge)
+        return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}".format(len(self.data),self.data, len(self.mix), self.mix, len(self.trash),self.trash, len(self.hazmat), self.hazmat, len(self.sludge), self.sludge)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
