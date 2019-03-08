@@ -85,7 +85,11 @@ class Water:
                 self.mix[x[0]] = [a, b]
 
     def __repr__(self):
-        return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}".format(len(self.data),self.data, len(self.mix), self.mix, len(self.trash),self.trash, len(self.hazmat), self.hazmat, len(self.sludge), self.sludge)
+        return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}".format(len(self.data), self.data, 
+            len(self.mix), self.mix, 
+            len(self.trash), self.trash, 
+            len(self.hazmat), self.hazmat, 
+            len(self.sludge), self.sludge)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
@@ -107,6 +111,7 @@ class Water:
                 ammonia_list.append(key)
                 self.sludge.append(key)
         for x in ammonia_list:
+            print("-------> {}".format(x))
             self.mix.pop(x)
         return len(ammonia_list)
 
