@@ -70,7 +70,7 @@ def main():
                         print("Treat trash poop: {}".format(ww.treat_trash_poop()))
                         print("Treat poop: {}".format(ww.treat_poop()))
                         ww.treat_mercury()
-                        print("Treat mercury: {}".format(www.merc_level))
+                        print("Treat mercury: {}".format(ww.merc_level))
                         print("Treat ammonia: {}".format(ww.treat_ammonia()))
                         print("Send stuff")
 
