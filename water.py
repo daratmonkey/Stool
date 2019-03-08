@@ -8,15 +8,20 @@ def log_it(mtype, message):
     fp.close()
     print("{}: {}\n".format(mtype, message))
 
-#https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
-def is_prime(x):
-    if x < 2:
+#https://stackoverflow.com/a/18833845
+
+def is_prime(n):
+    n = abs(int(n))
+    if n < 2:
         return False
-    else:
-        for n in range(2,x):
-            if x % n == 0:
-               return False
-        return True
+    if n == 2: 
+        return True    
+    if not n & 1: 
+        return False
+    for x in range(3, int(n**0.5) + 1, 2):
+        if n % x == 0:
+            return False
+    return True
 
 #https://github.com/brian-stout/water/blob/master/python_all/liquid.py
 def is_undulating(x):
