@@ -66,7 +66,7 @@ class Water:
         for x in data:
             if x[1] > len(data) or x[2] > len(data):
                 self.trash.append(x)
-            if x[1] == 0:
+            if x[0] == 0:
                 pass
             else:
                 if x[1] == 0:
@@ -122,9 +122,7 @@ class Water:
             if is_undulating(key) == True and key is not 0:
                 ammonia_list.append(key)
                 self.sludge.append(key)
-        print("+++++++> {}".format(ammonia_list))
         for x in ammonia_list:
-            print("-------> {}".format(x))
             self.mix.pop(x)
         return len(ammonia_list)
 
