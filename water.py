@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import struct
-
+from treat import log_it
 
 #https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
 def is_prime(x):
@@ -43,12 +43,6 @@ def is_undulating(x):
                 flip_bool = False
     return True    
 
-def log_it(mtype, message):
-    fp = open("sd.log", "a")
-    fp.write("{}: {}\n".format(mtype, message))
-    fp.close()
-    print("{}: {}\n".format(mtype, message))
-
 class Water:
     def __init__(self, data):
         liquid = True
@@ -85,12 +79,9 @@ class Water:
                 self.mix[x[0]] = [a, b]
 
     def __repr__(self):
-        return "data  : [{}]{}\n\
-mix   : [{}] {}\n\
-trash : [{}] {}\n\
-hazmat: [{}] {}\n\
-sludge: [{}] {}".format(len(self.data), self.data, len(self.mix), self.mix, len(self.trash),
-                 self.trash, len(self.hazmat), self.hazmat, len(self.slugde), self.sludge)
+        return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}".format(len(self.data),
+            self.data, len(self.mix), self.mix, len(self.trash),
+            self.trash, len(self.hazmat), self.hazmat, len(self.sludge), self.sludge)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
