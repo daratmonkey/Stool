@@ -67,10 +67,13 @@ def main():
                             log_it("ERRO", "Could not unpack data")
                         
                         ww = Water(the_mix)
+                        print("Treat trash poop")
                         ww.treat_trash_poop()
+                        print("Treat poop")
                         ww.treat_poop()
-
+                        print("Treat mercury")
                         ww.treat_mercury()
+                        print("Send stuff")
 
                         if len(ww.trash) > 0:
                             debris_final = struct.pack('!HHI', 1, (len(ww.trash) * 8) + 8, 0)
