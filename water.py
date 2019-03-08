@@ -118,7 +118,7 @@ class Water:
 
     def treat_ammonia(self):
         ammonia_list = []
-        for key in self.mix:
+        for key in self.mix.keys():
             if is_undulating(key) == True and key is not 0:
                 ammonia_list.append(key)
                 self.sludge.append(key)
@@ -128,7 +128,7 @@ class Water:
 
     def treat_poop(self):
         poop_list = []
-        for key in self.mix:
+        for key in self.mix.keys():
             if is_prime(self.mix[key][0]) == True:
                 poop_list.append(key)
                 self.sludge.append(key)
