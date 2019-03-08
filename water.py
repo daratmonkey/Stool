@@ -50,6 +50,7 @@ class Water:
         self.mix = dict()
         self.trash = []
         self.data = data
+        self.merc_level = 0
 
         for x in data:
             if x[1] > len(data) or x[2] > len(data):
@@ -82,6 +83,7 @@ class Water:
             unreachable.discard(value[1])
 
         if (len(unreachable) > 1):
+            self.merc_level += 1
             smallest = min(unreachable)
             self.hazmat.append(smallest)
             self.mix.pop(smallest)
@@ -95,6 +97,7 @@ class Water:
                 self.sludge.append(key)
         for x in ammonia_list:
             self.mix.pop(x)
+        return len(ammonia_list)
 
     def treat_poop(self):
         poop_list = []
@@ -104,6 +107,7 @@ class Water:
                 self.sludge.append(key)
         for x in poop_list:
             self.mix.pop(key, None)
+        return len(poop_list)
 
     def treat_trash_poop(self):
         poop_list = []
@@ -113,6 +117,7 @@ class Water:
                 self.sludge.append(x[0])
         for x in poop_list:
             self.trash.remove(x)
+        return len(poop_list)
 
     def add_air(self):
         pass
