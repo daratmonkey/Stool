@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import struct
+from treat import send_it
 
 #https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
 def is_prime(x):
@@ -78,7 +79,12 @@ class Water:
                 self.mix[x[0]] = [a, b]
 
     def __repr__(self):
-        return "data: {}\nmix: {}\ntrash: {}\nhazmat: {}\nsludge: {}".format(self.data, self.mix, self.trash, self.hazmat, self.sludge)
+        return "data  : [{}]{}\n\
+mix   : [{}] {}\n\
+trash : [{}] {}\n\
+hazmat: [{}] {}\n\
+sludge: [{}] {}".format(len(self.data), self.data, len(self.mix), self.mix, len(self.trash),
+                 self.trash, len(self.hazmat), self.hazmat, len(self.slugde), self.sludge)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
@@ -114,14 +120,17 @@ class Water:
         return len(poop_list)
 
     def treat_trash_poop(self):
-        poop_list = []
+        trash_poop_list = []
         for x in self.trash:
             if is_prime(x[0]) == True:
-                poop_list.append(x[0])
+                trash_poop_list.append(x[0])
                 self.sludge.append(x[0])
-        for x in poop_list:
-            self.trash.remove(x)
-        return len(poop_list)
+        for x in trash_poop_list:
+            try:
+                self.trash.remove(x)
+            except:
+                send_it("ERRO", "Tried to remove invalid trash poop")
+        return len(trash_poop_list)
 
     def add_air(self):
         pass
