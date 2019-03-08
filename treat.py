@@ -67,6 +67,9 @@ def main():
                             log_it("ERRO", "Could not unpack data")
                         
                         ww = Water(the_mix)
+                        ww.treat_trash_poop()
+                        ww.treat_poop()
+
                         ww.treat_mercury()
 
                         if len(ww.trash) > 0:

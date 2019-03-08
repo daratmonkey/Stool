@@ -2,11 +2,21 @@
 
 import struct
 
+#https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
+def is_prime(x):
+    if x < 2:
+        return False
+    else:
+        for n in range(2,x):
+            if x % n == 0:
+               return False
+        return True
+
 class Water:
     def __init__(self, data):
         liquid = True
         self.hazmat = []
-        self.sludge = dict()
+        self.sludge = []
         self.mix = dict()
         self.trash = []
         self.data = data
@@ -33,7 +43,7 @@ class Water:
                     self.mix[x[0]] = [a, b]
 
     def __repr__(self):
-        return "data: {}\nmix: {}\ntrash: {}\nhazmat: {}".format(self.data, self.mix, self.trash, self.hazmat)
+        return "data: {}\nmix: {}\ntrash: {}\nhazmat: {}\nsludge: {}".format(self.data, self.mix, self.trash, self.hazmat, self.sludge)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
@@ -46,6 +56,24 @@ class Water:
             self.hazmat.append(smallest)
             self.mix.pop(smallest)
             self.treat_mercury()
+
+    def treat_poop(self):
+        poop_list = []
+        for key in self.mix:
+            if is_prime(self.mix[key][0]) == True:
+                poop_list.append(key)
+                self.sludge[key] = self.mix[key]
+        for x in poop_list:
+            self.mix.pop(key, None)
+
+    def treat_trash_poop(self):
+        poop_list = []
+        for x in self.trash:
+            if is_prime(x[0]) == True:
+                poop_list.append(x[0])
+                self.sludge.append(x[0])
+        for x in poop_list:
+            self.trash.remove(x)
 
     def add_air(self):
         pass
