@@ -91,7 +91,7 @@ class Water:
 
     def __repr__(self):
         air = 0
-        for x in ww.data:
+        for x in self.data:
             if x[0] == 0:
                 air += 1
         return "data  : [{}]{}\nmix   : [{}] {}\ntrash : [{}] {}\nhazmat: [{}] {}\nsludge: [{}] {}\nair   : [{}]".format(len(self.data), self.data, 
