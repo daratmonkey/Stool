@@ -67,11 +67,17 @@ def main():
                             log_it("ERRO", "Could not unpack data")
                         
                         ww = Water(the_mix)
+                        print(ww.mix)
                         print("Treat trash poop: {}".format(ww.treat_trash_poop()))
+                        print(ww.mix)
                         print("Treat poop: {}".format(ww.treat_poop()))
+                        print(ww.mix)
+                        print("Amount of debris: {}".format(len(ww.trash)))
                         ww.treat_mercury()
                         print("Treat mercury: {}".format(ww.merc_level))
+                        print(ww.mix)
                         print("Treat ammonia: {}".format(ww.treat_ammonia()))
+                        print(ww.mix)
                         print("Send stuff")
 
 
