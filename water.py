@@ -107,7 +107,7 @@ class Water:
     def treat_ammonia(self):
         ammonia_list = []
         for key in self.mix:
-            if is_undulating(key) == True:
+            if is_undulating(key) == True and key is not 0:
                 ammonia_list.append(key)
                 self.sludge.append(key)
         print("+++++++> {}".format(ammonia_list))
