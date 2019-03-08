@@ -73,10 +73,11 @@ def main():
                         print("Treat poop      : {}".format(ww.treat_poop()))
                         #print(ww.mix)
                         print("Amount of debris: {}".format(len(ww.trash)))
+                        print("Treat ammonia   : {}".format(ww.treat_ammonia()))
                         ww.treat_mercury()
                         print("Treat mercury   : {}".format(ww.merc_level))
                         #print(ww.mix)
-                        print("Treat ammonia   : {}".format(ww.treat_ammonia()))
+                        
                         #print(ww.mix)
                         air = 0
                         for x in ww.data:
