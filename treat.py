@@ -104,6 +104,12 @@ def main():
                             water_final += ww.serialize_water()
                             send_it(downstream, 1111, water_final)
                             log_it("WATR", "[{}] {}".format(int((len(water_final) - 8) / 8), water_final))
+
+                        if len(ww.sludge) > 0:
+                            sludge_final = struct.pack('!HHI', 0, (len(ww.sludge) * 4) + 8, 0)
+                            sludge_final += ww.serialize_sludge()
+                            send_it("10.40.13.1", 7777, sludge_final)
+
                         print("++++++++++++++++++++++++++++++++++++++++")
                         print(ww)
                         print("++++++++++++++++++++++++++++++++++++++++")

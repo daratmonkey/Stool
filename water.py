@@ -178,4 +178,8 @@ class Water:
             hazmat_final += struct.pack('!II', x, 0)
         return hazmat_final
 
-    
+    def serialize_sludge(self):
+        sludge_final = b""
+        for x in self.sludge:
+            sludge_final += struct.pack('!I', x)
+        return sludge_final
