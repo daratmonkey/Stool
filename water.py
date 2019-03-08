@@ -66,7 +66,7 @@ class Water:
         for x in data:
             if x[1] > len(data) or x[2] > len(data):
                 self.trash.append(x)
-            if x[0] == 0:
+            elif x[0] == 0:
                 pass
             else:
                 if x[1] == 0:
