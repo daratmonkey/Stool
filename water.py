@@ -61,7 +61,7 @@ class Water:
                         a = 0
                     else:
                         a = 0xffff
-                elif data[x[1] - 1][0] > len(data)
+                elif data[x[1] - 1][0] > len(data):
                     a = 0
                 else:
                     a = data[x[1] - 1][0]
@@ -70,7 +70,7 @@ class Water:
                         b = 0
                     else:
                         b = 0xffff
-                elif data[x[2] - 1][0] > len(data)
+                elif data[x[2] - 1][0] > len(data):
                     b = 0
                 else:
                     b = data[x[2] - 1][0]
