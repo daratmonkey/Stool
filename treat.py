@@ -67,25 +67,19 @@ def main():
                             log_it("ERRO", "Could not unpack data")
                         
                         ww = Water(the_mix)
-                        #print(ww.mix)
                         print("Treat trash poop: {}".format(ww.treat_trash_poop()))
-                        #print(ww.mix)
+                        print("Treat trash ammo: {}".format(ww.treat_trash_ammonia()))
                         print("Treat poop      : {}".format(ww.treat_poop()))
-                        #print(ww.mix)
                         print("Amount of debris: {}".format(len(ww.trash)))
                         print("Treat ammonia   : {}".format(ww.treat_ammonia()))
                         ww.treat_mercury()
                         print("Treat mercury   : {}".format(ww.merc_level))
-                        #print(ww.mix)
                         
-                        #print(ww.mix)
                         air = 0
                         for x in ww.data:
                             if x[0] == 0:
                                 air += 1
                         print("Air             : {}".format(air))
-                        #print("Send stuff")
-
 
                         if len(ww.trash) > 0:
                             debris_final = struct.pack('!HHI', 1, (len(ww.trash) * 8) + 8, 0)

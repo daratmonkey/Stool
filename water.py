@@ -126,6 +126,19 @@ class Water:
             self.mix.pop(x)
         return len(ammonia_list)
 
+    def treat_trash_ammonia(self):
+        trash_ammonia_list = []
+        for x in self.trash:
+            if is_undulating(x[0]) == True:
+                trash_ammonia_list.append(x[0])
+                self.sludge.append(x[0])
+        for x in trash_ammonia_list:
+            try:
+                self.trash.remove(x)
+            except:
+                log_it("ERRO", "Tried to remove invalid trash ammonia")
+        return len(trash_ammonia_list)
+
     def treat_poop(self):
         poop_list = []
         for key in self.mix.keys():
