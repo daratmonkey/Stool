@@ -69,9 +69,9 @@ class Water:
     def treat_trash_poop(self):
         poop_list = []
         for x in self.trash:
-            if is_prime(x[0]) == True:
-                poop_list.append(x[0])
-                self.sludge.append(x[0])
+            if is_prime(x) == True:
+                poop_list.append(x)
+                self.sludge.append(x)
         for x in poop_list:
             self.trash.remove(x)
 
