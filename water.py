@@ -62,7 +62,7 @@ class Water:
         for key in self.mix:
             if is_prime(self.mix[key][0]) == True:
                 poop_list.append(key)
-                self.sludge[key] = self.mix[key]
+                self.sludge.append(key)
         for x in poop_list:
             self.mix.pop(key, None)
 
