@@ -96,9 +96,9 @@ class Water:
         for x in self.data:
             if x[0] == 0:
                 air += 1
-        return '\x1b[0;30;33mdata\x1b[0m]  : [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mmix\x1b[0m]\
-:[\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mtrash\x1b[0m] : [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mhazmat\x1b[0m]:\
-[\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33msludge\x1b[0m]: [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mair\x1b[0m]\
+        return '\x1b[0;30;33mdata\x1b[0m  : [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mmix\x1b[0m   \
+: [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mtrash\x1b[0m : [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mhazmat\x1b[0m:\
+ [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33msludge\x1b[0m: [\x1b[0;30;31m{}\x1b[0m] {}\n\x1b[0;30;33mair\x1b[0m   \
 : [\x1b[0;30;31m{}\x1b[0m]'.format(len(self.data), self.data, 
             len(self.mix), self.mix, 
             len(self.trash), self.trash, 
