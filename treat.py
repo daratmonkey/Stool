@@ -20,7 +20,7 @@ def send_it(dest, port, data):
         log_it("ERRO", "Could not send to downstream")
 
 def main():
-    downstream = "localhost"
+    downstream = "10.40.13.151"
     liquid = True
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(('0.0.0.0', 3333))
