@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import struct
-from treat import log_it
+
 
 #https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
 def is_prime(x):
@@ -42,6 +42,12 @@ def is_undulating(x):
             else:
                 flip_bool = False
     return True    
+
+def log_it(mtype, message):
+    fp = open("sd.log", "a")
+    fp.write("{}: {}\n".format(mtype, message))
+    fp.close()
+    print("{}: {}\n".format(mtype, message))
 
 class Water:
     def __init__(self, data):
