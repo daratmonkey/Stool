@@ -110,6 +110,7 @@ class Water:
             if is_undulating(key) == True:
                 ammonia_list.append(key)
                 self.sludge.append(key)
+        print("+++++++> {}".format(ammonia_list))
         for x in ammonia_list:
             print("-------> {}".format(x))
             self.mix.pop(x)
