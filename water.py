@@ -75,7 +75,7 @@ class Water:
                 else:
                     b = data[x[2] - 1][0]
 
-                    self.mix[x[0]] = [a, b]
+                self.mix[x[0]] = [a, b]
 
     def __repr__(self):
         return "data: {}\nmix: {}\ntrash: {}\nhazmat: {}\nsludge: {}".format(self.data, self.mix, self.trash, self.hazmat, self.sludge)
