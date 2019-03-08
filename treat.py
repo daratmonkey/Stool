@@ -86,7 +86,8 @@ def main():
                             water_final += ww.serialize_water()
                             send_it(downstream, 1112, water_final)
                             log_it("WATR", "[{}] {}".format(int((len(water_final) - 8) / 8), water_final))
-                            print("MIX: {}".format(ww.mix))
+
+                        print(ww)
 
                     else:
                         break

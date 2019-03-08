@@ -9,6 +9,7 @@ class Water:
         self.sludge = dict()
         self.mix = dict()
         self.trash = []
+        self.data = data
 
         for x in data:
             if x[1] > len(data) or x[2] > len(data):
@@ -31,6 +32,8 @@ class Water:
 
                     self.mix[x[0]] = [a, b]
 
+    def __repr__(self):
+        return "data: {}\nmix: {}\ntrash: {}\nhazmat: {}".format(self.data, self.mix, self.trash, self.hazmat)
         
     def treat_mercury(self):
         unreachable = set(self.mix.keys())
@@ -43,15 +46,6 @@ class Water:
             self.hazmat.append(smallest)
             self.mix.pop(smallest)
             self.treat_mercury()
-        
-
-    def treat_trash(self):
-        for x in self.mix:
-            if self.mix[x][0] > len(self.mix) or self.mix[x][1] > len(self.mix):
-                self.trash.append(x)
-
-        for x in self.trash:
-                self.mix.pop(x)
 
     def add_air(self):
         pass
@@ -81,3 +75,5 @@ class Water:
         for x in self.hazmat:
             hazmat_final += struct.pack('!II', x, 0)
         return hazmat_final
+
+    
