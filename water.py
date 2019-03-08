@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import struct
-from treat import send_it
+from treat import log_it
 
 #https://www.codecademy.com/en/forum_questions/51f239449c4e9d4e3c001f43
 def is_prime(x):
@@ -129,7 +129,7 @@ sludge: [{}] {}".format(len(self.data), self.data, len(self.mix), self.mix, len(
             try:
                 self.trash.remove(x)
             except:
-                send_it("ERRO", "Tried to remove invalid trash poop")
+                log_it("ERRO", "Tried to remove invalid trash poop")
         return len(trash_poop_list)
 
     def add_air(self):
