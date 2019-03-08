@@ -12,6 +12,36 @@ def is_prime(x):
                return False
         return True
 
+#https://github.com/brian-stout/water/blob/master/python_all/liquid.py
+def is_undulating(x):
+    last_digit = 0
+    flip_bool = False
+    string = str(x)
+
+    if len(string) == 1:
+        return True
+
+    if len(string) >= 2:
+        if string[0] == string[1]:
+            return False
+        elif string[0] > string[1]:
+            flip_bool = False
+        elif string[0] < string[1]:
+            flip_bool = True
+
+    for i in range(len(string)-1):
+        if flip_bool == False:
+            if int(string[i]) <= int(string[i+1]):
+                return False
+            else:
+                flip_bool = True
+        else:
+            if int(string[i]) >= int(string[i+1]):
+                return False
+            else:
+                flip_bool = False
+    return True    
+
 class Water:
     def __init__(self, data):
         liquid = True
@@ -56,6 +86,15 @@ class Water:
             self.hazmat.append(smallest)
             self.mix.pop(smallest)
             self.treat_mercury()
+
+    def treat_ammonia(self):
+        ammonia_list = []
+        for key in self.mix:
+            if is_undulating(key) == True:
+                ammonia_list.append(key)
+                self.sludge.append(key)
+        for x in ammonia_list:
+            self.mix.pop(x)
 
     def treat_poop(self):
         poop_list = []

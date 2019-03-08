@@ -73,7 +73,10 @@ def main():
                         ww.treat_poop()
                         print("Treat mercury")
                         ww.treat_mercury()
+                        print("Treat ammonia")
+                        ww.treat_ammonia()
                         print("Send stuff")
+
 
                         if len(ww.trash) > 0:
                             debris_final = struct.pack('!HHI', 1, (len(ww.trash) * 8) + 8, 0)
