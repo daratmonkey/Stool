@@ -197,5 +197,5 @@ class Water:
     def serialize_sludge(self):
         sludge_final = b""
         for x in self.sludge:
-            sludge_final += struct.pack('!I', x)
+            sludge_final += struct.pack('!IHH', x, 0, 0)
         return sludge_final
