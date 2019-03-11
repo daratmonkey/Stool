@@ -164,9 +164,6 @@ class Water:
             except:
                 log_it("ERRO", "Tried to remove invalid trash poop")
         return len(trash_poop_list)
-
-    def add_air(self):
-        pass
     
     def serialize_water(self):
         water_final = b""
@@ -180,6 +177,9 @@ class Water:
             except:
                 b = 0
             water_final += struct.pack('!IHH', x, a, b)
+        for x in (len(self.mix) / 20):
+            print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
+            water_final += struct.pack('!IHH', 0, 0, 0)
         return water_final
 
     def serialize_trash(self):
