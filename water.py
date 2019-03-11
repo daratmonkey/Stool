@@ -177,7 +177,7 @@ class Water:
             except:
                 b = 0
             water_final += struct.pack('!IHH', x, a, b)
-        for x in (len(self.mix) / 20):
+        for x in range(1, int((len(self.mix) / 20))):
             print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
             water_final += struct.pack('!IHH', 0, 0, 0)
         return water_final
