@@ -137,7 +137,10 @@ class Water:
                 self.sludge.append(x[0])
         for x in trash_ammonia_list:
             try:
-                self.trash.remove(x)
+                for y in self.trash:
+                    if y[0] == x:
+                        self.trash.remove(y)
+                #self.trash.remove(x)
             except:
                 log_it("ERRO", "Tried to remove invalid trash ammonia")
         return len(trash_ammonia_list)

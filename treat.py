@@ -7,7 +7,7 @@ def log_it(mtype, message):
     fp = open("sd.log", "a")
     fp.write("{}: {}\n".format(mtype, message))
     fp.close()
-    print("{}: {}\n".format(mtype, message))
+    #print("{}: {}\n".format(mtype, message))
 
 def send_it(dest, port, data):
     try:
