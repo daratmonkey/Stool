@@ -152,7 +152,7 @@ class Water:
                 poop_list.append(key)
                 self.sludge.append(key)
         for x in poop_list:
-            self.mix.pop(key, None)
+            self.mix.pop(x, None)
         return len(poop_list)
 
     def treat_trash_poop(self):
@@ -163,7 +163,10 @@ class Water:
                 self.sludge.append(x[0])
         for x in trash_poop_list:
             try:
-                self.trash.remove(x)
+                for y in self.trash:
+                    if y[0] == x:
+                        self.trash.remove(y)
+                #self.trash.remove(x)
             except:
                 log_it("ERRO", "Tried to remove invalid trash poop")
         return len(trash_poop_list)
