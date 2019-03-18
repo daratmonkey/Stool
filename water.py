@@ -62,8 +62,11 @@ class Water:
         self.trash = []
         self.data = data
         self.merc_level = 0
+        self.clorine = []
 
         for x in data:
+            if x[1] == x[2] and x[1] is not 0:
+                self.clorine.append(x)
             if x[1] > len(data) or x[2] > len(data):
                 self.trash.append(x)
             elif x[0] == 0:

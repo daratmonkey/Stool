@@ -67,6 +67,7 @@ def main():
                             log_it("ERRO", "Could not unpack data")
                         
                         ww = Water(the_mix)
+                        print("Incoming chlorine:{}".format(www.chlorine))
                         print("Treat trash poop: {}".format(ww.treat_trash_poop()))
                         print("Treat trash ammo: {}".format(ww.treat_trash_ammonia()))
                         print("Treat poop      : {}".format(ww.treat_poop()))
