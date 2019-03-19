@@ -104,6 +104,7 @@ def main():
                                 water_head = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 16, 0)
                                 water_final = ww.aerate(water_final)
                                 total_air += 1
+                                print("\x1b[0;30;36mADDING THAT AIR total_water:{} air:{}\x1b[0m".format(total_water, total_air))
                             water_final = water_head + water_final
                             send_it(downstream, 1111, water_final)
                             log_it("WATR", "[{}] {}".format(int((len(water_final) - 8) / 8), water_final))

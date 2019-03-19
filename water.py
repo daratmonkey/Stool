@@ -211,6 +211,5 @@ class Water:
 
     def aerate(self, water_final, num=1):
         for x in range(0, num):
-            print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
             water_final += struct.pack('!IHH', 0, 1, 0)
             return water_final
