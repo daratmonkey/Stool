@@ -97,11 +97,13 @@ def main():
                             log_it("HAZM", "[{}] {}".format(int((len(hazmat_final) - 8) / 8), hazmat_final))
 
                         if len(ww.mix) > 0:
-                            water_final = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 8, 0)
+                            water_head = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 8, 0)
                             water_final += ww.serialize_water()
-                            total_water += (len(water_final) - 8) / 8
+                            total_water += len(water_final) / 8
                             if (total_air / total_water) < .5:
+                                water_head = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 16, 0)
                                 ww.aerate(water_final)
+                            water_final = water_head + water_final
                             send_it(downstream, 1111, water_final)
                             log_it("WATR", "[{}] {}".format(int((len(water_final) - 8) / 8), water_final))
 
