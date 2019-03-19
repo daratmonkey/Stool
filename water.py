@@ -151,7 +151,7 @@ class Water:
     def treat_poop(self):
         poop_list = []
         for key in self.mix.keys():
-            if is_prime(self.mix[key][0]) == True:
+            if is_prime(key) == True:
                 poop_list.append(key)
                 self.sludge.append(key)
         for x in poop_list:
