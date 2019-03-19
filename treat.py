@@ -98,7 +98,7 @@ def main():
 
                         if len(ww.mix) > 0:
                             water_head = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 8, 0)
-                            water_final += ww.serialize_water()
+                            water_final = ww.serialize_water()
                             total_water += len(water_final) / 8
                             if (total_air / total_water) < .5:
                                 water_head = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 16, 0)
