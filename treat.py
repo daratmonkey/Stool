@@ -22,6 +22,8 @@ def send_it(dest, port, data):
 def main():
     downstream = "10.40.13.151"
     liquid = True
+    total_water = 0
+    total_air = 0
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(('0.0.0.0', 3333))
     server.listen(5)
@@ -97,6 +99,9 @@ def main():
                         if len(ww.mix) > 0:
                             water_final = struct.pack('!HHI', 0, (len(ww.mix) * 8) + 8, 0)
                             water_final += ww.serialize_water()
+                            if (total_air / total_water) < .5:
+                                ww.aerate(water_final)
+                            total_water += len(water_final - 8) / 8
                             send_it(downstream, 1111, water_final)
                             log_it("WATR", "[{}] {}".format(int((len(water_final) - 8) / 8), water_final))
 

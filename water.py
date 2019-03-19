@@ -186,9 +186,9 @@ class Water:
             except:
                 b = 0
             water_final += struct.pack('!IHH', x, a, b)
-        for x in range(1, int((len(self.mix) / 20))):
-            print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
-            water_final += struct.pack('!IHH', 0, 0, 0)
+        #for x in range(1, int((len(self.mix) / 20))):
+        #    print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
+        #    water_final += struct.pack('!IHH', 0, 0, 0)
         return water_final
 
     def serialize_trash(self):
@@ -208,3 +208,8 @@ class Water:
         for x in self.sludge:
             sludge_final += struct.pack('!IHH', x, 0, 0)
         return sludge_final
+
+    def aerate(self, water_final, num=1):
+        for x in range(0, num):
+            print("\x1b[0;30;36mADDING THAT AIR\x1b[0m")
+            water_final += struct.pack('!IHH', 0, 0, 0)
